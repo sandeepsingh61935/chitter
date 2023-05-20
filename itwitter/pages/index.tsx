@@ -1,3 +1,4 @@
+import SearchBar from "@/components/SearchBar"
 import Sidebar from "@/components/Sidebar"
 
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <div className="h-screen bg-black">
      <div className="grid grid-cols-4 h-full">
       <Sidebar />
+      <SearchBar/>
      </div>
     </div>
   )

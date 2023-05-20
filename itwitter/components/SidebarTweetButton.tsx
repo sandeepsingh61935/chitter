@@ -24,9 +24,10 @@ const SidebarTweetButton = () => {
         lg:block 
         px-4
         py-2
+        flex
         rounded-full
         bg-blue-500
-        hover:bg-opacity-90 
+        hover:bg-opacity-80 
         cursor-pointer
       ">
         <p className="hidden lg:block text-center font-semibold text-white text-[20px]">
