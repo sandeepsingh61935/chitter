@@ -1,11 +1,9 @@
-import Feed from "@/components/Feed"
-import SearchBar from "@/components/SearchBar"
-import Sidebar from "@/components/Sidebar"
+import Header from "@/components/Header"
 
 export default function Home() {
   return (
-    <div className="h-screen bg-black">
-    
-    </div>
+    <>
+      <Header  label="Home"/>
+    </>
   )
 }
