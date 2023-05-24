@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { IconType } from "react-icons";
+import { useRouter } from 'next/router';
+
+import useLoginModal from '@/hooks/useLoginModal';
+import useCurrentUser from '@/hooks/useCurrentUser';
+import { BsDot } from 'react-icons/bs';
 
 interface SidebarItemProps {
   label: string;
   icon: IconType;
+  href?: string;
+  onClick?: () => void;
+  auth?: boolean;
+  alert?: boolean;
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ label, icon: Icon }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ label, icon: Icon, href, auth, onClick, alert }) => {
+
   return (
     <div className="flex flex-row items-center">
       <div className="
+        relative
         rounded-full 
         h-14
         w-14
@@ -17,7 +28,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ label, icon: Icon }) => {
         items-center
         justify-center 
         p-4
-        hover:bg-blue-300 
+        hover:bg-slate-300 
         hover:bg-opacity-10 
         cursor-pointer 
         lg:hidden
@@ -25,19 +36,20 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ label, icon: Icon }) => {
         <Icon size={28} color="white" />
       </div>
       <div className="
+        relative
         hidden 
         lg:flex 
         items-row 
         gap-4 
         p-4 
-        rounded-xl 
-        hover:bg-blue-300 
+        rounded-full 
+        hover:bg-slate-300 
         hover:bg-opacity-10 
         cursor-pointer
         items-center
       ">
-        <Icon size={28} color="white" />
-        <p className="hidden lg:block text-white text-2xl">
+        <Icon size={24} color="white" />
+        <p className="hidden lg:block text-white text-xl">
           {label}
         </p>
       </div>
