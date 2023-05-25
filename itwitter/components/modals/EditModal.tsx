@@ -27,8 +27,13 @@ const EditModal = () => {
     setName(currentUser?.name)
     setUsername(currentUser?.username)
     setBio(currentUser?.bio)
-  }, [currentUser?.name, currentUser?.username, currentUser?.bio, currentUser?.profileImage, currentUser?.coverImage]);
-  
+  }, [
+        currentUser?.name,
+        currentUser?.username,
+        currentUser?.bio,
+        currentUser?.profileImage, 
+        currentUser?.coverImage]
+    );
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = useCallback(async () => {
@@ -72,7 +77,6 @@ const EditModal = () => {
       />
     </div>
   )
-
   return (
     <Modal
       disabled={isLoading}
