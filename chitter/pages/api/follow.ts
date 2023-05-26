@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     });
 
-    if (!user) {f
+    if (!user) {
       throw new Error('Invalid ID');
     }
 
