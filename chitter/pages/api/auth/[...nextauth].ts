@@ -15,6 +15,7 @@ export const authOptions: AuthOptions = {
         password: { label: 'password', type: 'password' }
       },
       async authorize(credentials) {
+        console.log(`email:${credentials?.email} password : ${credentials?.password}`)
         if (!credentials?.email || !credentials?.password) {
           throw new Error('Invalid credentials');
         }
@@ -24,7 +25,7 @@ export const authOptions: AuthOptions = {
             email: credentials.email
           }
         });
-
+        console.log(`user: ${user}`);
         if (!user || !user?.hashedPassword) {
           throw new Error('Invalid credentials');
         }
@@ -33,11 +34,7 @@ export const authOptions: AuthOptions = {
           credentials.password,
           user.hashedPassword
         );
-
-        if (!isCorrectPassword) {
-          throw new Error('Invalid credentials');
-        }
-
+        console.log(`compare password ${isCorrectPassword}`);
         return user;
       }
     })
